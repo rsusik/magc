@@ -129,27 +129,6 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 			}
 		}
 
-		//for(uint64_t i = 0; i < T::super_sigma; i++) {
-		//	if(indexed_patterns[i].count > 0) {
-		//		printf("indexed_patterns[%d] {\n", i);
-		//		printf("\tcount : %d\n", indexed_patterns[i].count);
-		//		printf("\tlist : {\n");
-		//		for(uint64_t j = 0; j < indexed_patterns[i].count; j++) {
-		//			printf("\t\t[%d] : {\n", j);
-		//				printf("\t\t\toffset  : %d\n"  , indexed_patterns[i].list[j].offset);
-		//				printf("\t\t\tpattern : %.*s\n", pattern_size, indexed_patterns[i].list[j].pattern);
-		//				printf("\t\t\top      : %.*s\n", pattern_size, indexed_patterns[i].list[j].op);
-		//			printf("\t\t}\n");
-		//		}
-		//		printf("\t}\n");
-		//		printf("}\n\n");
-		//	}
-		//}
-		//
-		//for(uint64_t i = 0; i < patterns_number; i++) {
-		//	printf("[%d] : %.*s\n", i, pattern_size, (char *)mag_dyn::patterns[i]);
-		//}
-
 		return patterns_number;
 
 	}
@@ -184,10 +163,6 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 				//printf(">>>> IN <<<<\n");
 				ref = el2;
 				while( el2 - indexed_patterns[index1].list >= 0) {
-					//printf("\n-----------------\n");
-					//printf("%.*s\t", ((cpm_mag_dyn_verification_args*)(args))->pattern_size, text + c);
-					//printf("%.*s\n", 64, text + c-16);
-					//if(memcmp(text + c, el2->pattern, ((cpm_mag_dyn_verification_args*)(args))->part_size)==0) {
 						long m = ((cpm_mag_dyn_verification_args*)(args))->pattern_size;
 						long part_size = ((cpm_mag_dyn_verification_args*)(args))->part_size;
 						long n = ((cpm_mag_dyn_verification_args*)(args))->text_size;
@@ -207,17 +182,12 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 								indexes.insert(my_pos);
 							}
 						}
-					//}
 						
 					
 					el2--;
 				}
 				el2 = ++ref;
 				while( el2 - indexed_patterns[index1].list < indexed_patterns[index1].count) {
-					//printf("\n-----------------\n");
-					//printf("%.*s\t", ((cpm_mag_dyn_verification_args*)(args))->pattern_size, text + c);
-					//printf("%.*s\n", 64, text + c-16);
-					//if(memcmp(text + c, el2->pattern, ((cpm_mag_dyn_verification_args*)(args))->part_size)==0) {
 						long m = ((cpm_mag_dyn_verification_args*)(args))->pattern_size;
 						long part_size = ((cpm_mag_dyn_verification_args*)(args))->part_size;
 						long n = ((cpm_mag_dyn_verification_args*)(args))->text_size;
@@ -237,8 +207,6 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 								indexes.insert(my_pos);
 							}
 						}
-					//}
-
 
 					el2++;
 				}
