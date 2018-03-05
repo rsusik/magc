@@ -92,7 +92,6 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 
 	// pelem comparator
 	int pelem_compar (const pelem* a, const pelem* b) {
-		//printf("___________\n%.*s\nVS\n%.*s\n___________\n", plist::BYTES_TO_COMPARE, a->pattern, plist::BYTES_TO_COMPARE, b->pattern);
 		return memcmp(a->pattern, b->pattern, plist::BYTES_TO_COMPARE);
 	}
 
@@ -150,13 +149,6 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 			c = vt[ s ] * T::q_size + pos;
 			el.pattern = text + c;
 			index1 = T::get_q_gram(el.pattern);
-			
-			//if(c >= 147091360 - 16 && c <= 147091360 + 16) {
-			//	printf("=========================\n");
-			//	printf("FOUND(c=%d, index=%d, BYTES_TO_COMPARE=%d): %.*s\n", c, index1, plist::BYTES_TO_COMPARE, plist::BYTES_TO_COMPARE, text + c);
-			//	printf("=========================\n");
-			//}
-			
 
 			el2 = (pelem*)bsearch(&el, indexed_patterns[index1].list, indexed_patterns[index1].count, sizeof(pelem), (int (*)(const void *, const void *))pelem_compar);
 			if(el2) {
@@ -175,7 +167,6 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 							l_number = chcpml(el2->op, m, text, n, c - 1                          , el2->offset - 1                          , 0);
 							r_number = chcpmr(el2->op, m, text, n, c + plist::BYTES_TO_COMPARE, el2->offset + plist::BYTES_TO_COMPARE, 0);
 						}
-						//printf("%.*s\n-----------------\n\n", m, text + c);
 						if (l_number + r_number + (int)plist::BYTES_TO_COMPARE >= m) {
 							for (int a = 0; a <= l_number + r_number + (int)plist::BYTES_TO_COMPARE - m;  a++) {
 								long my_pos = c - l_number + a;
@@ -200,7 +191,6 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 							l_number = chcpml(el2->op, m, text, n, c - 1                          , el2->offset - 1                          , 0);
 							r_number = chcpmr(el2->op, m, text, n, c + plist::BYTES_TO_COMPARE, el2->offset + plist::BYTES_TO_COMPARE, 0);
 						}
-						//printf("%.*s\n-----------------\n\n", m, text + c);
 						if (l_number + r_number + (int)plist::BYTES_TO_COMPARE >= m) {
 							for (int a = 0; a <= l_number + r_number + (int)plist::BYTES_TO_COMPARE - m;  a++) {
 								long my_pos = c - l_number + a;
