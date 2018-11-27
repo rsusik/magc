@@ -57,7 +57,7 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 }
 
 	void print_result(double data_acc_time, double pre_time, double search_time,
-		long ver_count, long while_loops, long matches, long sigma, long super_sigma,
+		long matches, long sigma, long super_sigma,
 		long text_file_size, long pattern_size
 	) {
 		double inmb = text_file_size / 1000.0 / 1000.0;
@@ -65,7 +65,7 @@ unsigned int chcpmr( const uchar *P, unsigned int p_size, const uchar *T, unsign
 		printf("%ld\t%ld\t", sigma, super_sigma);												// sigmas
 		printf("%ld\t", pattern_size);															// pattern size
 		printf("%ld\t", text_file_size);														// data information
-		printf("%ld\t%ld\t%ld\t", ver_count, while_loops, matches);								// search information
+		printf("%ld\t", matches);																// search information
 		printf("%f\t%f\t%f\t%f\t", data_acc_time, pre_time, search_time, pre_search_time);		// times
 		printf("%f\t%f", inmb/search_time, inmb/pre_search_time);								// speed
 		printf("\n");
