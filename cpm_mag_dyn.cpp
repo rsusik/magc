@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 	//	printf("%.*s\n", pattern_size, text+ *itr); // vector 
 	//}
 
-	for ( std::set<word>::iterator it = cpm_mag_dyn::tmp.begin(); it != cpm_mag_dyn::tmp.end(); it++) printf("%llu\n", *it);
+	for ( std::set<word>::iterator it = cpm_mag_dyn::tmp.begin(); it != cpm_mag_dyn::tmp.end(); it++) printf("%lu\n", *it);
 
 	cpm_mag_dyn::print_result(t_get_seconds(t_data_acc), t_get_seconds(t_pre), t_get_seconds(t_run), 0, 0, matches, sigma, get_super_sigma(q_size), text_size, part_size);
 
