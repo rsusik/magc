@@ -7,8 +7,8 @@ The algorithm is searching the circullar patterns in a given text file. It is a 
 ## Requirements
 * C++ compiler compatible 
 * Unix based 64-bit OS (compilation works also in Cygwin)
-* Python 3 (for testing)
-* Docker (optionally)
+* Python 3 (for [testing](#testing))
+* [Docker](#docker) (optionally)
 
 ## Compilation
 To compile the code run below line commands:
@@ -109,11 +109,24 @@ The above command generates patterns of length *m*={8, 16, 32, 64} for english.2
 
 The simplest way you can test the algorithm is by using docker. All you need to do is to:
 
-* Clone the git repository:
-```shell
-git clone https://github.com/rsusik/magc magc
-cd magc
-```
+* Pull or build the image:
+
+	* Pull from repository steps:
+	```
+	docker pull rsusik/magc
+	docker tag docker.io/rsusik/magc magc
+	```
+
+	* Build steps:
+		* Clone the git repository:
+		```shell
+		git clone https://github.com/rsusik/magc magc
+		cd magc
+		```
+		* Build the image:
+		```shell
+		docker build -t magc .
+		```
 
 * Build the image:
 ```shell
