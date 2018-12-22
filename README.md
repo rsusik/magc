@@ -128,11 +128,6 @@ The simplest way you can test the algorithm is by using docker. All you need to 
 		docker build -t magc .
 		```
 
-* Build the image:
-```shell
-docker build -t magc .
-```
-
 * Run container:
 ```shell
 docker run --rm magc
